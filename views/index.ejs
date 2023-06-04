@@ -18,15 +18,15 @@
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10">
           <div class="pyportal-screen">
-            <p><%= appText %></p>
+            <p><%= message %></p>
           </div>
           <h1 class="text-center mb-4">My App</h1>
           <!-- Create a form that POSTs to the /save route -->
           <form method="POST" action="/save">
-            <!-- Create a text area pre-filled with the current text, named "appText" -->
+            <!-- Create a text area pre-filled with the current text, named "message" -->
             <div class="form-group mb-4">
-              <textarea class="form-control" name="appText" rows="10">
-<%= appText %></textarea
+              <textarea class="form-control" name="message" rows="10">
+<%= message %></textarea
               >
             </div>
             <!-- Create a save button -->
