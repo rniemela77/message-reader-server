@@ -39,20 +39,22 @@
           </ul>
           <div class="tab-content">
             <div class="tab-pane fade show active" id="hello">
-              <!-- Create a form that POSTs to the /save-hello route for "/api/hello" -->
-              <form method="POST" action="/save-hello">
+              <!-- Create a form that POSTs to the /save route for "/api/hello" -->
+              <form method="POST" action="/save">
                 <!-- Create a container for the textarea -->
                 <div class="form-group">
                   <!-- Create the textarea pre-filled with the current hello message, named "message" -->
                   <textarea class="form-control" name="message" rows="11">
-<%= helloMessage %></textarea
+<%= message %></textarea
                   >
 
                   <input
                     type="color"
                     class="color-input"
+                    name="color"
                     id="colorInput"
                     onchange="updateColorPreview()"
+                    oninput="updateColorPreview()"
                   />
                 </div>
                 <!-- Create a save button -->
@@ -70,7 +72,7 @@
                 <div class="form-group">
                   <!-- Create the textarea pre-filled with the current click message, named "message" -->
                   <textarea class="form-control" name="message" rows="10">
-<%= clickMessage %></textarea
+<%= message %></textarea
                   >
                 </div>
                 <!-- Create a save button -->
@@ -87,7 +89,7 @@
     </div>
     <script>
       // set the color of the color input
-      document.querySelector("#colorInput").value = "<%= helloColor %>";
+      document.querySelector("#colorInput").value = "<%= color %>";
       updateColorPreview();
 
       function updateColorPreview() {

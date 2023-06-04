@@ -21,9 +21,10 @@ app.use(express.static(path.join(__dirname, "public")));
 // Serve static files from the "node_modules" directory
 app.use("/node_modules", express.static(path.join(__dirname, "node_modules")));
 
-let helloMessage = "";
-let helloColor = "#ffffff";
-let clickMessage = "";
+let appData = {
+  message: "Hello!",
+  color: "#ffffff",
+};
 
 app.set("view engine", "ejs");
 
@@ -31,30 +32,23 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => {
   // Render the "index" template and pass the helloMessage and clickMessage variables
   res.render("index", {
-    helloMessage: helloMessage,
-    helloColor: helloColor,
-    clickMessage: clickMessage,
+    message: appData["message"],
+    color: appData["color"],
   });
 });
 
 // Route for saving the text for "/api/hello" or "/api"
-app.post("/save-hello", (req, res) => {
+app.post("/save", (req, res) => {
   // Update the helloMessage variable with the new value from the request body
-  helloMessage = req.body.message;
-  res.redirect("/");
-});
-
-// Route for saving the text for "/api/click"
-app.post("/save-click", (req, res) => {
-  // Update the clickMessage variable with the new value from the request body
-  clickMessage = req.body.message;
+  appData.message = req.body.message;
+  appData.color = req.body.color;
   res.redirect("/");
 });
 
 // API endpoint for retrieving the message for "/api/hello"
 app.get("/api/hello", (req, res) => {
   // Return the helloMessage as JSON
-  res.json({ message: helloMessage, color: helloColor });
+  res.json({ appData });
 });
 
 // API endpoint for retrieving the message for "/api/click"
