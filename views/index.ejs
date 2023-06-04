@@ -17,14 +17,12 @@
     <div class="container mt-5">
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10">
-          <div class="pyportal-screen">
-            <p><%= message.replace(/\n/g, '<br />') %></p>
-          </div>
-          <h1 class="text-center mb-4">My App</h1>
+          <h1>My App</h1>
           <!-- Create a form that POSTs to the /save route -->
           <form method="POST" action="/save">
-            <!-- Create a text area pre-filled with the current text, named "message" -->
-            <div class="form-group mb-4">
+            <!-- Create a container for the textarea -->
+            <div class="form-group mb-4 textarea-container">
+              <!-- Create a text area pre-filled with the current text, named "message" -->
               <textarea class="form-control" name="message" rows="10">
 <%= message %></textarea
               >
