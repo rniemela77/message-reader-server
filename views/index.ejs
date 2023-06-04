@@ -9,7 +9,6 @@
       href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <!-- Include Custom CSS -->
     <link href="/style.css" rel="stylesheet" />
   </head>
 
@@ -17,21 +16,73 @@
     <div class="container mt-5">
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10">
-          <h1>My App</h1>
-          <!-- Create a form that POSTs to the /save route -->
-          <form method="POST" action="/save">
-            <!-- Create a container for the textarea -->
-            <div class="form-group mb-4 textarea-container">
-              <!-- Create a text area pre-filled with the current text, named "message" -->
-              <textarea class="form-control" name="message" rows="10">
-<%= message %></textarea
+          <h1>Message Reader Server</h1>
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="hello-tab"
+                data-bs-toggle="tab"
+                href="#hello"
+                >/api/hello</a
               >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="click-tab"
+                data-bs-toggle="tab"
+                href="#click"
+                >/api/click</a
+              >
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="hello">
+              <!-- Create a form that POSTs to the /save route for "/api/hello" -->
+              <form method="POST" action="/save">
+                <!-- Create a container for the textarea -->
+                <div class="form-group">
+                  <div class="rectangle">
+                    <!-- Create the textarea pre-filled with the current text, named "message" -->
+                    <textarea class="form-control" name="message" rows="10">
+<%= message %></textarea
+                    >
+                  </div>
+                  <!-- Create a save button -->
+                  <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">
+                      Save for /api/hello
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
-            <!-- Create a save button -->
-            <div class="form-group text-center">
-              <button type="submit" class="btn btn-primary">Save</button>
+            <div class="tab-pane fade" id="click">
+              <!-- Create another form that POSTs to the /save-click route for "/api/click" -->
+              <form method="POST" action="/save-click">
+                <!-- Create a container for the textarea -->
+                <div class="form-group">
+                  <div class="rectangle">
+                    <!-- Create the textarea pre-filled with the current click message, named "clickMessage" -->
+                    <textarea
+                      class="form-control"
+                      name="clickMessage"
+                      rows="10"
+                    >
+<%= clickMessage %></textarea
+                    >
+                  </div>
+                  <!-- Create a save button -->
+                  <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">
+                      Save for /api/click
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
