@@ -1,16 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>My App</title>
-    <!-- Set the title of the page -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Include Bootstrap CSS -->
+    <link
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Include Custom CSS -->
+    <link href="/style.css" rel="stylesheet" />
   </head>
+
   <body>
-    <!-- Create a form that POSTs to the /save route -->
-    <form method="POST" action="/save">
-      <!-- Create a text area pre-filled with the current text, named "appText" -->
-      <textarea name="appText" rows="10" cols="30"><%= appText %></textarea>
-      <!-- Create a save button -->
-      <button type="submit">Save</button>
-    </form>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <h1 class="text-center mb-4">My App</h1>
+          <!-- Create a form that POSTs to the /save route -->
+          <form method="POST" action="/save">
+            <!-- Create a text area pre-filled with the current text, named "appText" -->
+            <div class="form-group">
+              <textarea class="form-control" name="appText" rows="10">
+<%= appText %></textarea
+              >
+            </div>
+            <!-- Create a save button -->
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Include Bootstrap JavaScript -->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
