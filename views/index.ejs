@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App</title>
+    <!-- Set the title of the page -->
+  </head>
+  <body>
+    <!-- Create a form that POSTs to the /save route -->
+    <form method="POST" action="/save">
+      <!-- Create a text area pre-filled with the current text, named "appText" -->
+      <textarea name="appText" rows="10" cols="30"><%= appText %></textarea>
+      <!-- Create a save button -->
+      <button type="submit">Save</button>
+    </form>
+  </body>
+</html>
