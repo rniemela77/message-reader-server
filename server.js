@@ -48,7 +48,7 @@ app.post("/save", (req, res) => {
 // API endpoint for retrieving the message for "/api/hello"
 app.get("/api/hello", (req, res) => {
   // Return the helloMessage as JSON
-  res.json({ appData });
+  res.json(appData);
 });
 
 // API endpoint for retrieving the message for "/api/click"
