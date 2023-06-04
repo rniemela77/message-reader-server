@@ -22,6 +22,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/node_modules", express.static(path.join(__dirname, "node_modules")));
 
 let helloMessage = "";
+let helloColor = "#ffffff";
 let clickMessage = "";
 
 app.set("view engine", "ejs");
@@ -31,6 +32,7 @@ app.get("/", (req, res) => {
   // Render the "index" template and pass the helloMessage and clickMessage variables
   res.render("index", {
     helloMessage: helloMessage,
+    helloColor: helloColor,
     clickMessage: clickMessage,
   });
 });
@@ -52,7 +54,7 @@ app.post("/save-click", (req, res) => {
 // API endpoint for retrieving the message for "/api/hello"
 app.get("/api/hello", (req, res) => {
   // Return the helloMessage as JSON
-  res.json({ message: helloMessage });
+  res.json({ message: helloMessage, color: helloColor });
 });
 
 // API endpoint for retrieving the message for "/api/click"

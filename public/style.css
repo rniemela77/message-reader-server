@@ -10,24 +10,19 @@ body {
   background-color: #201f1f !important;
   color: #999 !important;
 }
-.rectangle {
-  width: 320px;
-  height: 240px;
-  background-color: #000000;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.rectangle textarea {
-  color: #ffffff;
+
+textarea {
   background-color: #000000 !important;
   border-color: #000000 !important;
   text-align: center;
+  font-size: 12px;
+  height: unset;
+  overflow: hidden;
+  resize: none;
+  width: 53ch;
 }
-.rectangle textarea:focus {
+textarea:focus {
   outline: none;
-  color: #fff !important;
 }
 
 .nav-tabs {
@@ -42,4 +37,17 @@ body {
 
 .btn-primary {
   margin-top: 3rem;
+}
+
+.color-picker {
+  display: inline-block;
+}
+.color-preview {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000;
+  margin-right: 10px;
+}
+.color-input {
+  width: 100px;
 }

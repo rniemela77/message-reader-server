@@ -43,18 +43,23 @@
               <form method="POST" action="/save-hello">
                 <!-- Create a container for the textarea -->
                 <div class="form-group">
-                  <div class="rectangle">
-                    <!-- Create the textarea pre-filled with the current hello message, named "message" -->
-                    <textarea class="form-control" name="message" rows="10">
+                  <!-- Create the textarea pre-filled with the current hello message, named "message" -->
+                  <textarea class="form-control" name="message" rows="11">
 <%= helloMessage %></textarea
-                    >
-                  </div>
-                  <!-- Create a save button -->
-                  <div class="form-group text-center">
-                    <button type="submit" class="btn btn-primary">
-                      Save for /api/hello
-                    </button>
-                  </div>
+                  >
+
+                  <input
+                    type="color"
+                    class="color-input"
+                    id="colorInput"
+                    onchange="updateColorPreview()"
+                  />
+                </div>
+                <!-- Create a save button -->
+                <div class="form-group text-center">
+                  <button type="submit" class="btn btn-primary">
+                    Save for /api/hello
+                  </button>
                 </div>
               </form>
             </div>
@@ -63,18 +68,16 @@
               <form method="POST" action="/save-click">
                 <!-- Create a container for the textarea -->
                 <div class="form-group">
-                  <div class="rectangle">
-                    <!-- Create the textarea pre-filled with the current click message, named "message" -->
-                    <textarea class="form-control" name="message" rows="10">
+                  <!-- Create the textarea pre-filled with the current click message, named "message" -->
+                  <textarea class="form-control" name="message" rows="10">
 <%= clickMessage %></textarea
-                    >
-                  </div>
-                  <!-- Create a save button -->
-                  <div class="form-group text-center">
-                    <button type="submit" class="btn btn-primary">
-                      Save for /api/click
-                    </button>
-                  </div>
+                  >
+                </div>
+                <!-- Create a save button -->
+                <div class="form-group text-center">
+                  <button type="submit" class="btn btn-primary">
+                    Save for /api/click
+                  </button>
                 </div>
               </form>
             </div>
@@ -82,6 +85,19 @@
         </div>
       </div>
     </div>
+    <script>
+      // set the color of the color input
+      document.querySelector("#colorInput").value = "<%= helloColor %>";
+      updateColorPreview();
+
+      function updateColorPreview() {
+        // change the text color of the textarea to the color selected
+        document.querySelector("textarea").style.color = `${
+          document.querySelector("#colorInput").value
+        }`;
+      }
+    </script>
+
     <!-- Include Bootstrap JavaScript -->
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
