@@ -1,6 +1,12 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+
+const port = process.env.PORT || 3000; // Use the dynamic port or fallback to a default (e.g., 3000)
+app.listen(port, () =>
+  console.log(`Server running on http://localhost:${port}`)
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
