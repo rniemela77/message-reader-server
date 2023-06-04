@@ -39,14 +39,14 @@
           </ul>
           <div class="tab-content">
             <div class="tab-pane fade show active" id="hello">
-              <!-- Create a form that POSTs to the /save route for "/api/hello" -->
-              <form method="POST" action="/save">
+              <!-- Create a form that POSTs to the /save-hello route for "/api/hello" -->
+              <form method="POST" action="/save-hello">
                 <!-- Create a container for the textarea -->
                 <div class="form-group">
                   <div class="rectangle">
-                    <!-- Create the textarea pre-filled with the current text, named "message" -->
+                    <!-- Create the textarea pre-filled with the current hello message, named "message" -->
                     <textarea class="form-control" name="message" rows="10">
-<%= message %></textarea
+<%= helloMessage %></textarea
                     >
                   </div>
                   <!-- Create a save button -->
@@ -64,12 +64,8 @@
                 <!-- Create a container for the textarea -->
                 <div class="form-group">
                   <div class="rectangle">
-                    <!-- Create the textarea pre-filled with the current click message, named "clickMessage" -->
-                    <textarea
-                      class="form-control"
-                      name="clickMessage"
-                      rows="10"
-                    >
+                    <!-- Create the textarea pre-filled with the current click message, named "message" -->
+                    <textarea class="form-control" name="message" rows="10">
 <%= clickMessage %></textarea
                     >
                   </div>
